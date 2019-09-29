@@ -6,6 +6,8 @@ import KeyboardArrowLeft from "@material-ui/icons/KeyboardArrowLeft";
 import Button from "@material-ui/core/Button";
 import Grid from "@material-ui/core/Grid";
 
+import MoviePageCard from "./MoviePage";
+
 const useStyles = makeStyles(theme => ({
   root: {
     padding: theme.spacing(3, 2)
@@ -38,6 +40,7 @@ export default function PaperSheet({ setActive, id }) {
         <KeyboardArrowLeft />
         Back
       </Button>
+
       <Grid container direction="row" justify="center" alignItems="center">
         <Grid
           container
@@ -45,45 +48,9 @@ export default function PaperSheet({ setActive, id }) {
           direction="row"
           justify="space-around"
           alignItems="center"
-          lg={6}
+          lg={8}
         >
-          <Paper className={classes.root}>
-            {movie && (
-              <div>
-                <Typography variant="h5" component="h3">
-                  {movie.Title}
-                </Typography>
-                <img alt={movie.Title} src={movie.Poster} />
-                <Typography component="p">
-                  {movie.Type && movie.Type} | Year: {movie.Year} |{" "}
-                  {movie.Genre}
-                </Typography>
-                <Typography component="p">
-                  Released Year:{movie.Released}
-                </Typography>
-                <div>
-                  <br />
-
-                  <Grid
-                    container
-                    direction="column"
-                    justify="center"
-                    alignItems="flex-start"
-                  >
-                    <Typography variant="h7" component="h3">
-                      Raiting:
-                    </Typography>
-                    {movie.Ratings &&
-                      movie.Ratings.map((item, index) => (
-                        <Typography key={index} component="p">
-                          {item.Source} : {item.Value}
-                        </Typography>
-                      ))}
-                  </Grid>
-                </div>
-              </div>
-            )}
-          </Paper>
+          <MoviePageCard movie={movie} />
         </Grid>
       </Grid>
     </div>

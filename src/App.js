@@ -6,13 +6,26 @@ import FormControl from "@material-ui/core/FormControl";
 import Select from "@material-ui/core/Select";
 import Grid from "@material-ui/core/Grid";
 import Container from "@material-ui/core/Container";
+import { makeStyles } from "@material-ui/core/styles";
 
 import MovieCard from "./MovieCard";
 import MovieDetailsPage from "./MovieDetailsPage";
 import Spinner from "./Spinner";
 import "./App.css";
 
+const useStyles = makeStyles(theme => ({
+  textField: {
+    marginLeft: theme.spacing(1),
+    marginRight: theme.spacing(1),
+    width: "100%",
+    [theme.breakpoints.up("sm")]: {
+      width: 150
+    }
+  }
+}));
+
 function App() {
+  const classes = useStyles();
   const [activePage, setActivePage] = useState("search");
   const [movie, setMovie] = useState("");
   const [data, setData] = useState({});
@@ -81,6 +94,7 @@ function App() {
                   value={values.name}
                   onChange={handleChange("name")}
                   margin="normal"
+                  className={classes.textField}
                 />
                 <TextField
                   id="standard-name"
@@ -88,8 +102,9 @@ function App() {
                   value={values.year}
                   onChange={handleChange("year")}
                   margin="normal"
+                  className={classes.textField}
                 />
-                <FormControl>
+                <FormControl className={classes.textField}>
                   <InputLabel htmlFor="type-native-simple">type</InputLabel>
                   <Select
                     native
