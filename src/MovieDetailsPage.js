@@ -1,7 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { makeStyles } from "@material-ui/core/styles";
-import Paper from "@material-ui/core/Paper";
-import Typography from "@material-ui/core/Typography";
 import KeyboardArrowLeft from "@material-ui/icons/KeyboardArrowLeft";
 import Button from "@material-ui/core/Button";
 import Grid from "@material-ui/core/Grid";
@@ -16,7 +14,6 @@ const useStyles = makeStyles(theme => ({
 
 export default function PaperSheet({ setActive, id }) {
   const [movie, getMovie] = useState([]);
-  const classes = useStyles();
 
   useEffect(() => {
     async function fetchData() {
@@ -31,7 +28,7 @@ export default function PaperSheet({ setActive, id }) {
   return (
     <div>
       <Button
-        style={{ float: "left" }}
+        style={{ float: "left", margin: "20px 0" }}
         variant="contained"
         onClick={() => {
           setActive();

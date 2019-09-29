@@ -1,5 +1,6 @@
 import React from "react";
 import { makeStyles, useTheme } from "@material-ui/core/styles";
+import PropTypes from "prop-types";
 import Card from "@material-ui/core/Card";
 import CardContent from "@material-ui/core/CardContent";
 import CardMedia from "@material-ui/core/CardMedia";
@@ -85,11 +86,16 @@ export default function MediaControlCard({ movie }) {
           </Grid>
         </CardContent>
       </div>
-      <CardMedia
-        className={classes.cover}
-        image={movie.Poster}
-        title={movie.Title}
-      />
+      {movie.Poster && (
+        <CardMedia
+          className={classes.cover}
+          image={movie.Poster}
+          title={movie.Title}
+        />
+      )}
     </Card>
   );
 }
+MediaControlCard.propTypes = {
+  movie: PropTypes.any.isRequired
+};

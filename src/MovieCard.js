@@ -1,5 +1,6 @@
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
+import PropTypes from "prop-types";
 import Card from "@material-ui/core/Card";
 import CardActionArea from "@material-ui/core/CardActionArea";
 import CardContent from "@material-ui/core/CardContent";
@@ -39,11 +40,7 @@ export default function MediaCard({
       <CardActionArea>
         <CardMedia
           className={classes.media}
-          image={
-            poster
-              ? poster
-              : "https://previews.123rf.com/images/ylivdesign/ylivdesign1610/ylivdesign161008497/66123513-popcorn-icon-gray-monochrome-illustration-of-popcorn-vector-icon-for-web.jpg"
-          }
+          image={poster}
           title="Contemplative Reptile"
         />
         <CardContent>
@@ -77,3 +74,11 @@ export default function MediaCard({
     </Card>
   );
 }
+MediaCard.propTypes = {
+  poster: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired,
+  type: PropTypes.string.isRequired,
+  id: PropTypes.string.isRequired,
+  year: PropTypes.string.isRequired,
+  toggleActivePage: PropTypes.func.isRequired
+};

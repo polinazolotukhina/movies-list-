@@ -51,13 +51,14 @@ function App() {
           } else {
             setErrors(res.Error);
             setLoading(false);
+            setData([]);
           }
         });
       }
 
       fetchData();
     } else {
-      setErrors("What movie are you looking for?");
+      setErrors("Oops! The search returns no results...");
       setData([]);
     }
   };
